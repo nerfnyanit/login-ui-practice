@@ -9,5 +9,5 @@ Next.js + Tailwind CSS で作ったログイン画面の見た目だけのサン
 - TypeScript
 - Tailwind CSS 4
 
-## デモ
-Vercel でデプロイ予定
+## スクリーンショット
+![ログイン画面](public/screenshot.png)
