@@ -3,13 +3,19 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const { email, password } = await req.json();
 
-  // 仮の認証（あとでDBに差し替える）
-  if (email === "test@test.com" && password === "password") {
-    return NextResponse.json({ success: true });
+  if (email === "Hello@gmail.com" && password === "HELLOWORLD") {
+    console.log("LOGIN API HIT");
+    const response = NextResponse.json({ success: true });
+
+    response.cookies.set("isLoggedIn", "true", {
+      httpOnly: true,
+      path: "/",
+      sameSite: "lax",
+      maxAge: 60 * 60, // 1時間
+    });
+
+    return response;
   }
 
-  return NextResponse.json(
-    { success: false, message: "Invalid credentials" },
-    { status: 401 }
-  );
+  return NextResponse.json({ success: false }, { status: 401 });
 }

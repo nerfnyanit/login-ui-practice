@@ -5,7 +5,8 @@ Next.js と Tailwind CSS を使用して作成した、
 **金融系サービスを想定したログイン画面のUIサンプルプロジェクト**です。
 
 フロントエンドのUI設計・スタイリングに重点を置きつつ、  
-将来的に認証機能やバックエンド連携を追加できる構成で実装しています。
+簡易的な認証フロー（Cookie + Middleware）を実装しており、  
+ログイン成功時にダッシュボードページへ遷移するデモが可能です。
 
 ---
 
@@ -14,6 +15,7 @@ Next.js と Tailwind CSS を使用して作成した、
 - React 19
 - TypeScript
 - Tailwind CSS 4
+- Cookie を用いた簡易認証（Middleware でアクセス制御）
 
 ---
 
@@ -32,9 +34,22 @@ Next.js と Tailwind CSS を使用して作成した、
 
 ---
 
+## 仮ログイン情報(デモ用)
+
+
+| Email           | Password |
+|-----------------|----------|
+| Hello@gmail.com   | HELLOWORLD |
+
+- この情報でログインすると `/dashboard` に遷移します
+- Cookie に `isLoggedIn=true` がセットされ、Middleware によるアクセス制御を体験できます
+
+---
+
 ## 学習目的・背景
 - Next.js App Router を用いたコンポーネント設計の理解
 - フォームUIの設計と状態管理の練習
+- Cookie + Middleware を用いた簡易認証フローの理解
 - 実務を意識したログイン画面のUI・UX設計
 
 ---
@@ -42,5 +57,7 @@ Next.js と Tailwind CSS を使用して作成した、
 ## 今後の改善予定
 - フォームバリデーションの追加
 - レスポンシブ対応の強化
-- API Routes を用いた認証処理の実装
+- API Routes を用いた認証処理の拡張
 - バックエンド機能（DB・認証）との連携
+- ログアウト機能の実装
+
